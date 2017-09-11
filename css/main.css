@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: url('../img/trail-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.well {
+  text-align: center;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.footer {
+  bottom: 0;
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  position: absolute;
+  height: 35px;
+ }
+
+ .jumbotron{
+   background: inherit;
+ }
