@@ -1,6 +1,6 @@
 import {Player} from './../js/player.js';
 
-describe ('Player', function() {
+describe ('AGame', function() {
   let janedoe;
 
   beforeEach(function() {

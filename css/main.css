@@ -13,6 +13,7 @@ body {
   text-align: center;
   width: 70%;
   margin-left: 15%;
+  background-color: white;
 }
 
 .footer {
@@ -26,5 +27,14 @@ body {
  }
 
  .jumbotron{
-   background: inherit;
+   background-color: white;
+ }
+
+ #game-play-board {
+   display: none;
+ }
+
+ #user-name{
+   padding-left: 20%;
+   padding-right: 20%;
  }

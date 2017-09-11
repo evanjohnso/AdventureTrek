@@ -90,14 +90,14 @@ gulp.task('bowerBuild', ['bower'], function(){
   browserSync.reload();
 });
 
-gulp.task('concatInterface', function() {
-  return gulp.src(['./js/*.js'])
-  .pipe(concat('allConcat.js'))
-  .pipe(gulp.dest('./tmp'));
-});
+// gulp.task('concatInterface', function() {
+//   return gulp.src(['./js/*.js'])
+//   .pipe(concat('allConcat.js'))
+//   .pipe(gulp.dest('./tmp'));
+// });
 //translate ES6 into es2015
-gulp.task('jsBrowserify', ['concatInterface'], function() {
-  return browserify({ entries: ['./tmp/allConcat.js'] })
+gulp.task('jsBrowserify', function() {
+  return browserify({ entries: ['js/player-interface.js'] })
     .transform(babelify.configure({
       presets: ["es2015"]
     }))
