@@ -28,4 +28,36 @@ describe ('Player', function() {
     jasmine.clock().tick(5001);
     expect(janedoe.waterLevel).toEqual(95);
   });
+
+  it('should die if food level drops below zero', function() {
+    janedoe.foodLevel = 0;
+    expect(janedoe.didYouStarve()).toEqual(true);
+  });
+
+  it('should die if water level drops below zero', function() {
+    janedoe.waterLevel = 0;
+    expect(janedoe.didYouDieOfDehydration()).toEqual(true);
+  });
+
+  it('should get very hungry if 100 seconds pass without finding food', function(){
+    jasmine.clock().tick(100000);
+    expect(janedoe.didYouStarve()).toEqual(true);
+  });
+
+  it('should get very thirsty if 100 seconds pass without finding water', function(){
+    jasmine.clock().tick(100000);
+    expect(janedoe.didYouDieOfDehydration()).toEqual(true);
+  });
+
+  it('should have a positive food level if food found', function(){
+    jasmine.clock().tick(90001);
+    janedoe.feed(10);
+    expect(janedoe.foodLevel > 0).toEqual(true);
+  });
+
+  it('should have a positive water level if water found', function(){
+    jasmine.clock().tick(90001);
+    janedoe.drink(10);
+    expect(janedoe.waterLevel > 0).toEqual(true);
+  });
 });

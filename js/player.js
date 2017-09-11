@@ -18,4 +18,29 @@ export class Player {
       this.waterLevel -= 5;
     }, 5000);
   }
+
+  didYouStarve(){
+    if (this.foodLevel > 0){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  didYouDieOfDehydration(){
+    if(this.waterLevel > 0){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  feed(foundFood){
+    this.foodLevel += foundFood;
+  }
+
+  drink(foundWater){
+    this.waterLevel += foundWater;
+  }
+
 }
