@@ -43,4 +43,12 @@ export class Player {
     this.waterLevel += foundWater;
   }
 
+  pay(cost){
+    if (cost <= this.moneyLevel){
+      this.moneyLevel -= cost;
+      return `You have ${this.moneyLevel} coins left.`;
+    } else {
+      return "You don't have that much money";
+    }
+  }
 }

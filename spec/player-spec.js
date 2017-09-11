@@ -60,4 +60,17 @@ describe ('Player', function() {
     janedoe.drink(10);
     expect(janedoe.waterLevel > 0).toEqual(true);
   });
+
+  it('should decrease money level when need to pay for something but not go below zero', function(){
+    janedoe.pay(10);
+    expect(janedoe.moneyLevel > 0).toEqual(true);
+    expect(janedoe.moneyLevel).not.toEqual(100);
+  });
+
+  it('should notify player if they try to buy something that costs more than they have', function(){
+    janedoe.pay(200);
+    let message = "You don't have that much money";
+    expect(janedoe.moneyLevel).toEqual(100);
+    expect(message).toEqual("You don't have that much money");
+  });
 });
