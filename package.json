@@ -32,5 +32,14 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EstiShay/adventure-trek.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EstiShay/adventure-trek/issues"
+  },
+  "homepage": "https://github.com/EstiShay/adventure-trek#readme",
   "description": ""
 }

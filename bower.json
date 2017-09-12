@@ -3,7 +3,7 @@
   "description": "",
   "main": "index.js",
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/EstiShay/adventure-trek",
   "ignore": [
     "**/.*",
     "node_modules",
