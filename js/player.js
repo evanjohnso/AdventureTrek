@@ -7,22 +7,22 @@ export class Player {
     this.moneyLevel = 100;
   }
 
-  setHunger(){
+  setHunger(foodDisplay){
     let food;
     const setHungerInterval = setInterval(() => {
       if (this.foodLevel >= 0) {
         food = this.foodLevel -= 5;
-        return $('#food-level').text(food);
+        foodDisplay(food);
       }
     }, 5000);
   }
 
-  setThirst(){
+  setThirst(waterDisplay){
     let water;
     const setThirstInterval = setInterval(() => {
       if (this.waterLevel >= 0) {
         water = this.waterLevel -= 5;
-        return $('#water-level').text(water);
+        waterDisplay(water);
       }
     }, 5000);
   }

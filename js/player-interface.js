@@ -22,10 +22,17 @@ $(document).ready(function(){
     e.preventDefault();
     let playerName = $("input#get-name").val();
     let thisPlayer = new Player(playerName);
-    let foodInterval = thisPlayer.setHunger();
-    let waterInterval = thisPlayer.setThirst();
+    let foodInterval = thisPlayer.setHunger(foodDisplay);
+    let waterInterval = thisPlayer.setThirst(waterDisplay);
     $('#food-level').text(thisPlayer.foodLevel);
     $('#water-level').text(thisPlayer.waterLevel);
+
+    var waterDisplay(watermsg){
+      $('#water-level').text(watermsg);
+    }
+    var foodDisplay(foodmsg){
+      $('#water-level').text(foodmsg);
+    }
 
     //Create gameboard
     let welcome = `Welcome to the adventure ${playerName}!`;
