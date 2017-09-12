@@ -1,4 +1,5 @@
 import { Player } from './../js/player.js';
+var apiKey = require('./../.env').apiKey;
 
 $(document).ready(function(){
   //Create rotating background to give the game day and night
@@ -35,7 +36,7 @@ $(document).ready(function(){
 
     let imageLocation = document.getElementById("giphy");
     $.ajax({
-      url: "http://api.giphy.com/v1/gifs/search?q=adventure&rating=g&api_key=a0fe2caa7f9a4932853584166cc20ee2",
+      url: `http://api.giphy.com/v1/gifs/search?q=adventure&rating=g&api_key=${apiKey}`,
       type: "GET",
       data: {
         format: 'json'
