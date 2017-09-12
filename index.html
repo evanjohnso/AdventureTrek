@@ -32,10 +32,17 @@
       </form>
     </div>
     <div class="well" id="game-play-board">
-      <div class="row">
-        <img src="" alt="Unable to load" id="giphy">
+      <div class="game-play-header">
+        <div class="row">
+          <img src="" alt="Unable to load" id="giphy">
+        </div>
+        <h3><span id="player-greeting"></span></h3>
       </div>
-      <h3><span id="player-greeting"></span></h3>
+      <div class="game-over">
+        <h2>GAME OVER</h2>
+        <input type="button" class="btn btn-info" value="New Game" onClick="window.location.reload()">
+      </div>
+
       <hr>
       <div class="row">
         <div class="col-md-6">

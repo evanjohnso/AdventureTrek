@@ -20,19 +20,38 @@ $(document).ready(function(){
   //Get player's name
   $("#nameForm").submit(function(e) {
     e.preventDefault();
+
+    //What to do when the game ends
+    function gameover(){
+      $('.game-over').show();
+      $('.game-play-header').hide();
+      $('#search-water').hide();
+      $('#search-food').hide();
+    }
+
+    //Track supply levels
+    function waterDisplay(watermsg){
+      if (watermsg === 0) {
+        $('#water-level').text(watermsg);
+        gameover();
+      } else {
+      $('#water-level').text(watermsg);
+      }
+    }
+    function foodDisplay(foodmsg){
+      if (foodmsg === 0) {
+        $('#food-level').text(foodmsg);
+        gameover();
+      } else {
+        $('#food-level').text(foodmsg);
+      }
+    }
     let playerName = $("input#get-name").val();
     let thisPlayer = new Player(playerName);
     let foodInterval = thisPlayer.setHunger(foodDisplay);
     let waterInterval = thisPlayer.setThirst(waterDisplay);
     $('#food-level').text(thisPlayer.foodLevel);
     $('#water-level').text(thisPlayer.waterLevel);
-
-    var waterDisplay(watermsg){
-      $('#water-level').text(watermsg);
-    }
-    var foodDisplay(foodmsg){
-      $('#water-level').text(foodmsg);
-    }
 
     //Create gameboard
     let welcome = `Welcome to the adventure ${playerName}!`;
@@ -41,6 +60,7 @@ $(document).ready(function(){
     $("span#water-level").text(waterInterval);
     let randomNumber = Math.floor(Math.random() * 25);
 
+    //GIPHY - exercise to utilize results of API call
     let imageLocation = document.getElementById("giphy");
     $.ajax({
       url: `http://api.giphy.com/v1/gifs/search?q=adventure&rating=g&api_key=${apiKey}`,
@@ -57,11 +77,13 @@ $(document).ready(function(){
       }
     });
 
+    //Switch from player name input to game play board
     $(this).parent().fadeOut(1000);
     setTimeout( () => {
       $(this).parent().next().fadeIn(1000);
     }, 1000);
 
+    //Get more food
     $("#search-food").click(function(e){
       e.preventDefault();
       let findFood = Math.floor(Math.random() * 15);
@@ -72,6 +94,7 @@ $(document).ready(function(){
       $('.report-water').hide();
     });
 
+    //Get more water
     $("#search-water").click(function(e){
       e.preventDefault();
       let findWater = Math.floor(Math.random() * 15);
@@ -82,8 +105,4 @@ $(document).ready(function(){
       $('.report-food').hide();
     });
   });
-
-
-
-
 });

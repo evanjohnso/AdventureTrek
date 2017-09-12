@@ -2,31 +2,23 @@ export class Player {
 
   constructor(name){
     this.name = name;
-    this.foodLevel = 100;
-    this.waterLevel = 100;
+    this.foodLevel = 50;
+    this.waterLevel = 50;
     this.moneyLevel = 100;
   }
 
-  setHunger(foodDisplay){
-    let food;
-    const setHungerInterval = setInterval(() => {
-      if (this.foodLevel >= 0) {
-        food = this.foodLevel -= 5;
-        foodDisplay(food);
+  //Interval to reduce food supply over time and end interval when food runs out
+  setHunger(foodDisplay) {
+    let intNum = setInterval( () => {
+      this.foodLevel -= 5;
+      if (!this.didYouStarve()){
+        foodDisplay(this.foodLevel);
+      } else {
+        foodDisplay(0);
+        clearInterval(intNum);
       }
     }, 5000);
   }
-
-  setThirst(waterDisplay){
-    let water;
-    const setThirstInterval = setInterval(() => {
-      if (this.waterLevel >= 0) {
-        water = this.waterLevel -= 5;
-        waterDisplay(water);
-      }
-    }, 5000);
-  }
-
   didYouStarve(){
     if (this.foodLevel > 0){
       return false;
@@ -34,19 +26,27 @@ export class Player {
       return true;
     }
   }
-
-  didYouDieOfDehydration(){
+  //Interval to reduce water supply over time and end interval when water runs out
+  setThirst(waterDisplay){
+    let intNum = setInterval( () => {
+      this.waterLevel -= 5;
+      this.didYouDieOfDehydration(waterDisplay, intNum);
+    }, 5000);
+  }
+  didYouDieOfDehydration(waterDisplay, intNum){
     if(this.waterLevel > 0){
-      return false;
+      waterDisplay(this.waterLevel);
     } else {
-      return true;
+      waterDisplay(0);
+      clearInterval(intNum);
     }
   }
 
+  //Add food to supplies
   feed(foundFood){
     this.foodLevel += foundFood;
   }
-
+  //Add water to supplies
   drink(foundWater){
     this.waterLevel += foundWater;
   }

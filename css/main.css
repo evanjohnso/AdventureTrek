@@ -46,3 +46,7 @@ body {
  .report-food{
    display: none;
  }
+
+ .game-over{
+   display: none;
+ }
