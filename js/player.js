@@ -8,14 +8,22 @@ export class Player {
   }
 
   setHunger(){
-    setInterval(() => {
-      this.foodLevel -= 5;
+    let food;
+    const setHungerInterval = setInterval(() => {
+      if (this.foodLevel >= 0) {
+        food = this.foodLevel -= 5;
+        return $('#food-level').text(food);
+      }
     }, 5000);
   }
 
   setThirst(){
-    setInterval(() => {
-      this.waterLevel -= 5;
+    let water;
+    const setThirstInterval = setInterval(() => {
+      if (this.waterLevel >= 0) {
+        water = this.waterLevel -= 5;
+        return $('#water-level').text(water);
+      }
     }, 5000);
   }
 
