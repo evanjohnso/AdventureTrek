@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   //Get player's name
   $("#nameForm").submit(function(e) {
-        e.preventDefault();
+    e.preventDefault();
     let playerName = $("input#get-name").val();
     let thisPlayer = new Player(playerName);
     let foodInterval = thisPlayer.setHunger();
@@ -59,6 +59,9 @@ $(document).ready(function(){
       let findFood = Math.floor(Math.random() * 15);
       thisPlayer.feed(findFood);
       $('#food-level').text(thisPlayer.foodLevel);
+      $('#found-food').text(findFood);
+      $('.report-food').show();
+      $('.report-water').hide();
     });
 
     $("#search-water").click(function(e){
@@ -66,6 +69,9 @@ $(document).ready(function(){
       let findWater = Math.floor(Math.random() * 15);
       thisPlayer.drink(findWater);
       $('#water-level').text(thisPlayer.waterLevel);
+      $('#found-water').text(findWater);
+      $('.report-water').show();
+      $('.report-food').hide();
     });
   });
 

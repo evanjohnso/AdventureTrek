@@ -32,7 +32,11 @@
       </form>
     </div>
     <div class="well" id="game-play-board">
+      <div class="row">
+        <img src="" alt="Unable to load" id="giphy">
+      </div>
       <h3><span id="player-greeting"></span></h3>
+      <hr>
       <div class="row">
         <div class="col-md-6">
           <h4>Your food level: <span id="food-level"></span></h4>
@@ -46,15 +50,14 @@
           <form class="food">
             <button type="button" name="button" class="btn btn-info" id="search-food">Search for food</button>
           </form>
+          <p class="report-food">You found: <span id="found-food"></span></p>
         </div>
         <div class="col-md-6">
           <form class="water">
             <button type="button" name="button" class="btn btn-info" id="search-water">Search for water</button>
           </form>
+          <p class="report-water">You found: <span id="found-water"></span></p>
         </div>
-      </div>
-      <div class="row">
-        <img src="" alt="Unable to load" id="giphy">
       </div>
     </div>
 

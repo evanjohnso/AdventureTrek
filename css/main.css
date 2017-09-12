@@ -38,3 +38,11 @@ body {
    padding-left: 20%;
    padding-right: 20%;
  }
+
+ .report-water{
+   display: none;
+ }
+
+ .report-food{
+   display: none;
+ }
